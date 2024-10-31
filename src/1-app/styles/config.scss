@@ -1,0 +1,94 @@
+// Базовые цвета
+$color-blue: #006bd2;
+$color-select-blue: #f2f7fc;
+$color-white: #fff;
+$color-txt: #3f3737;
+$color-grey-bg: #e7e7e7;
+$color-light-bg: linear-gradient(-70deg, #2c4f4f, #000000);;
+$color-dark-blue: #153671;
+$color-blue2: #006bce;
+$color-light-blue: #87afe0;
+$color-footer-bg: #eef0f2;
+$color-red: #e53d3d;
+$color-grey: #9db3ac;
+
+$site-breakpoints: (
+	mobile: 360px,
+	tablet: 768px,
+	middle: 1024px,
+	desktop: 1440px,
+	desktop-extra: 1640px,
+	full: 1920px,
+);
+
+// отступ контента СТРАНИЦЫ для разных брекпоинтов
+// работают через media-запрос min-width
+$content-offset-over-min: 25px;
+$content-offsets: (
+	mobile: 25px,
+	tablet: 30px,
+	middle: 50px,
+	desktop: 50px,
+	desktop-extra: 50px,
+	full: 50px,
+);
+
+// отступ для grid-container на разных брекпоинтах
+// работают через media-запрос min-width
+$gutter-size-over-min: 20px;
+$gutter-size: (
+	mobile: 30px,
+	tablet: 25px,
+	middle: 30px,
+	desktop: 40px,
+	desktop-extra: 40px,
+	full: 40px,
+);
+
+$header-height-mobile: 75px;
+$header-height-tablet: 90px;
+$header-height-desktop: 110px;
+$body-text-color: $color-txt;
+$body-background: $color-light-bg;
+$body-font-color: $color-txt;
+$body-font-family: "Montserrat", arial, sans-serif;
+
+// Отступы
+$indents: (
+	"red": (
+		"color": #f00,
+		"sizes": (
+			"mobile": 70px,
+			"tablet": 80px,
+			"desktop": 120px,
+		),
+	),
+	"green": (
+		"color": #95ff84,
+		"sizes": (
+			"mobile": 50px,
+			"tablet": 70px,
+		),
+	),
+	"yellow": (
+		"color": #ffd600,
+		"sizes": (
+			"mobile": 40px,
+			"desktop": 50px,
+		),
+	),
+	"violet": (
+		"color": #6663ff,
+		"sizes": (
+			"mobile": 30px,
+		),
+	),
+	"blue": (
+		"color": #50aee2,
+		"sizes": (
+			"mobile": 15px,
+			"tablet": 20px,
+			"desktop": 15px,
+		),
+	),
+);

@@ -1,0 +1,87 @@
+@use "sass:math";
+@use "sass:string";
+@use "sass:meta";
+@use "sass:map";
+@use "sass:list";
+@import "./src/1-app/styles/config";
+
+/// Добавляет числу значение (Напрмер px) и возвращает его
+/// @param {int} $val - числовое значение
+/// @param {string} $unit - строковое значение
+/// @return {$val + $unit} - значение
+@function add-unit($val, $unit) {
+	@if (meta.type-of($val) != "string") {
+		$val: #{$val};
+	}
+
+	@if (null == string.index($val, $unit)) {
+		$val: #{$val}#{$unit};
+	}
+
+	@return $val;
+}
+
+/// Чистит значение $num от единиц измерения
+///
+/// @param {number} $num - любое число в любых единицах измерения
+@function strip-unit($num) {
+	@return math.div($num, ($num * 0 + 1));
+}
+
+/// Возвращает значение цветного отсутпа
+///
+/// @param {string} $name - цвет отступа
+/// @param {string} $breakpoints - название брейкпоинт
+/// @return {number} - значение цветного отступа
+@function color-indent-value($name, $breakpoints) {
+	$indent: map.get($indents, $name);
+	$sizes: map.get($indent, "sizes");
+	$value: map.get($sizes, $breakpoints);
+
+	@if (meta.type-of($value) == "number") {
+		@return $value;
+	} @else {
+		$value: 30px;
+		$skip: false;
+
+		@each $size, $value in map-reverse($site-breakpoints) {
+			@if ($size == $breakpoints) {
+				$skip: true;
+			}
+
+			@if ($skip) {
+				$value: map.get($sizes, $size);
+
+				@if (meta.type-of($value) == "number") {
+					@return $value;
+				}
+			}
+		}
+	}
+}
+
+/// Возвращает перевернутый массив
+///
+/// @param {map} $map - массив
+/// @return {map} - перевернутый массив
+@function map-reverse($map) {
+	$result: null;
+
+	@if meta.type-of($map) == "map" {
+		$keys: map.keys($map);
+		$map-reversed: ();
+
+		@for $i from list.length($keys) through 1 {
+			$map-reversed: map.merge(
+				$map-reversed,
+				(list.nth($keys, $i): map.get($map, list.nth($keys, $i)))
+			);
+		}
+
+		@if meta.type-of($map-reversed) == "map" {
+			$result: $map-reversed;
+		}
+	}
+
+	@return $result;
+}
