@@ -6,7 +6,7 @@ const load = ref(true);
 
 const typedText = ref('');
 const isTyping = ref(false);
-const textArray = ["php", "javascript", "typescript", "vue", "react"];
+const textArray = ["php", "vue", "typescript", "javascript", "react"];
 const typingDelay = 80;
 const erasingDelay = 100;
 const newTextDelay = 400;

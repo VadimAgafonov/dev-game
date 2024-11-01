@@ -22,13 +22,10 @@ $class-name: "b-default-template";
 
 .#{$class-name} {
 	position: relative;
-	width: 375px;
-	height: 810px;
+	width: 100dvw;
+	height: 100dvh;
 	overflow: hidden;
 	margin: 0 auto;
-	border: 1px solid #616f6480;
-	border-image: linear-gradient(120deg, #914444, #200606);
-	border-image-slice: 1;
 
 	&__header {
 		position: absolute;
